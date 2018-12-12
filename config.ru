@@ -2,8 +2,15 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'figaro'
 
-require 'app'
+require 'application'
 require 'web'
+
+# load env
+Figaro.application = Figaro::Application.new(
+  environment: 'production',
+  path: File.expand_path('config/application.yml')
+)
+Figaro.load
 
 Thread.abort_on_exception = true
 
