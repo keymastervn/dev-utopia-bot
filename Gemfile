@@ -9,6 +9,7 @@ gem 'slack-ruby-bot'
 group :development, :test do
   gem 'rake'
   gem 'foreman'
+  gem 'pry'
 end
 
 group :test do
