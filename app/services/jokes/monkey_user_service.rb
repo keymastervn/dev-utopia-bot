@@ -18,7 +18,7 @@ class MonkeyUserService < JokeService
 
     def get_content
       random_idx = rand(feed.items.size)
-      random_item = feed.items[]
+      random_item = feed.items[random_idx]
 
       img_tag = Nokogiri::HTML(random_item.description).css("p").children.first
       img_url = img_tag.attributes["src"].value
