@@ -1,7 +1,7 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'figaro'
-
+require 'active_support/all'
 require 'application'
 require 'web'
 
