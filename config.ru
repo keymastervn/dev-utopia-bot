@@ -4,6 +4,10 @@ require 'figaro'
 require 'active_support/all'
 require 'application'
 require 'web'
+require 'rss'
+require 'open-uri'
+require 'nokogiri'
+require 'ostruct'
 
 # load env
 Figaro.application = Figaro::Application.new(
