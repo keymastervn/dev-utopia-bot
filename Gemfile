@@ -20,3 +20,4 @@ group :test do
 end
 
 gem 'simple-rss'
+gem 'nokogiri'
