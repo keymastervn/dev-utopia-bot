@@ -8,7 +8,7 @@ require 'rss'
 require 'open-uri'
 require 'nokogiri'
 require 'ostruct'
-
+require 'pry'
 # load env
 Figaro.application = Figaro::Application.new(
   environment: 'production',
