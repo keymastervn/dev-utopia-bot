@@ -6,13 +6,14 @@ class MonkeyUserService < JokeService
 
   private_class_method :new
 
-  def self.output
+  def self.output opt = {}
     new.send(:get_content)
   end
 
   private
+    attr_accessor :feed
+
     def initialize
-      attr_reader :feed
       self.feed = RSS::Parser.parse(open(URI), false)
     end
 

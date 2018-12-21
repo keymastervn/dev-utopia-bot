@@ -4,24 +4,23 @@ class BeLikeBillService < JokeService
   PROVIDER = "Be Like Bill"
   PROVIDER_URL = "https://belikebill.ga"
 
+  attr_accessor :victim
   private_class_method :new
 
-  def self.output
-    new.send(:get_content)
+  def self.output opt = {}
+    new(opt).send(:get_content)
   end
 
   private
-    def initialize
-      attr_reader :name, :sex
-      self.name = "Dat"
-      self.sex = "m"
+    def initialize opt = {}
+      self.victim = opt[:real_name]
     end
 
     def get_content
-      img_url = "https://belikebill.ga/billgen-API.php?default=1&name=#{self.name}&sex=#{self.sex}"
+      img_url = "https://belikebill.ga/billgen-API.php?default=1&name=#{self.victim}"
       OpenStruct.new(
         title: "Sometimes, we should be nice, holaaa!",
-        link: "",
+        link: "https://belikebill.ga",
         img: img_url,
         alt: "",
         provider: PROVIDER,

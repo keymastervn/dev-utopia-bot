@@ -1,11 +1,17 @@
 module App
-  module Uncommands
+  module Commands
     # simple command
     class Joke < SlackRubyBot::Commands::Base
-      command ':D' do |client, data, _match|
-        message = JokeService.new.result
+      command 'joke' do |client, data, _match|
+        info = {
+          real_name: client.store.users[data.user]['real_name']
+        }
 
-        client.say(channel: data.channel, text: message)
+        message = JokeService.new(info).result
+        client.say(channel: data.channel, text: "<#{message[:title_link]}/|#{message[:title]}>\n" \
+          "#{message[:alt]}" \
+          "> #{message[:image_url]}"
+        )
       end
     end
   end
